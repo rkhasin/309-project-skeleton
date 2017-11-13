@@ -6,7 +6,7 @@ var ProductSchema = {
     type: String,
     default: '',
     trim: true,
-    required: 'Title required'
+    required: 'Name required'
   },
 
   description: {
@@ -16,29 +16,27 @@ var ProductSchema = {
     required: 'Description required'
 
   },
-  price:{
+
+  price: {
     type: Number,
-    default:0,
-    trim:true,
-    required:'Price required'
-  },
-  quantity:{
-    type: Number,
-    default:1,
-    trim:true,
-    required:'Quantity required'
+    default: 0,
+    trim: true,
+    required: 'Price required'
   },
 
+  quantity: {
+    type: Number,
+    default: Date.now
+  },
   user: {
     type: Schema.ObjectId,
     ref: 'User'
   },
-
-  created: {
+    created: {
     type: Date,
     default: Date.now
   }
 }
 
-var Article = mongoose.model('Product', ProductSchema, 'product');
-module.exports = Article;
+var Product = mongoose.model('Product', ProductSchema, 'products');
+module.exports = Product;
